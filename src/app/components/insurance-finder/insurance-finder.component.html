@@ -1,0 +1,16 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4 fw-bold">Find Your Bike Insurance Type</h2>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let bike of bikeTypes">
+        <div class="card h-100 shadow-sm p-3 border-0 text-center" style="border-radius: 20px; cursor: pointer;">
+          <div class="fs-1">🏍️</div>
+          <h5 class="fw-bold mt-2">{{ bike.name }}</h5>
+          <p class="text-muted">{{ bike.desc }}</p>
+          <button class="btn btn-outline-primary btn-sm mt-auto">Explore</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

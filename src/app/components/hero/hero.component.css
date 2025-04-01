@@ -1,0 +1,40 @@
+.hero-container {
+    padding: 100px 20px 60px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .badge {
+    background: linear-gradient(to right, #7CB9E8, #002D62);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .input-group input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .input-group input::placeholder {
+    color: #888;
+  }
+  
+  .bike-img {
+    max-width: 450px;
+    width: 100%;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
+  }
+  
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  .hero-section {
+    padding-top: 100px; /* enough space below navbar */
+    text-align: center;
+  }
+  

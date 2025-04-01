@@ -1,0 +1,20 @@
+.call-agent-section {
+    background: #f0f8ff;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 1s ease-in-out both;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
