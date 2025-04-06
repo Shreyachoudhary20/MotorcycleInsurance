@@ -1,7 +1,18 @@
 import { Routes } from '@angular/router';
+import { HeroComponent } from './components/hero/hero.component';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'get-quote', pathMatch: 'full' }, // ✅ Default route goes to quote form
-  { path: 'get-quote', component: QuoteFormComponent },   
+  { path: '', component: HeroComponent }, // Homepage
+  { path: 'get-quote', component: QuoteFormComponent },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./components/broker-dashboard/broker-dashboard.component').then(m => m.BrokerDashboardComponent)
+  },
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./components/about.component').then(m => m.AboutComponent)
+  }
 ];

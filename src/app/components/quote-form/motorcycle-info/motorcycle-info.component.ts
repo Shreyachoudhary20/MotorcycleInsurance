@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-motorcycle-info',
-  imports: [],
+  standalone:true,
   templateUrl: './motorcycle-info.component.html',
-  styleUrl: './motorcycle-info.component.css'
+  styleUrls: ['./motorcycle-info.component.css']
 })
 export class MotorcycleInfoComponent {
 

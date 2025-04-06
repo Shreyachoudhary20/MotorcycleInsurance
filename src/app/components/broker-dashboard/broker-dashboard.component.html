@@ -1,0 +1,90 @@
+<div class="dashboard-container" [ngClass]="{ 'dark-mode': darkMode }">
+  <!-- Sidebar -->
+  <aside class="sidebar" [ngClass]="{ 'collapsed': isCollapsed }">
+    <div class="brand">🏍️ MotoInsurance</div>
+    <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
+    <nav>
+      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/get-quote">New Quote</a>
+      <a routerLink="/quotes">Quotes</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="theme-switch">
+      <label>
+        <input type="checkbox" (change)="toggleDarkMode()"> Dark Mode
+      </label>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="header">
+      <h2>Welcome, {{ brokerName }}</h2>
+      <div>
+        <button (click)="exportQuotesToPDF()">Export PDF</button>
+        <button (click)="exportQuotesToCSV()">Export CSV</button>
+      </div>
+    </header>
+
+    <!-- Stats Cards -->
+    <section class="stats">
+      <div class="card glass">Total Quotes <h3>{{ stats.total }}</h3></div>
+      <div class="card glass">Pending <h3>{{ stats.pending }}</h3></div>
+      <div class="card glass">Approved <h3>{{ stats.approved }}</h3></div>
+      <div class="card glass">Bound <h3>{{ stats.bound }}</h3></div>
+    </section>
+
+    <!-- Map -->
+    <section class="map">
+      <h4>Policy Locations</h4>
+      <div leaflet [leafletOptions]="mapOptions" [leafletLayers]="mapLayers"></div>
+    </section>
+
+    <!-- Quote Table -->
+    <section class="quote-table">
+      <h3>Recent Quotes</h3>
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search by customer..." />
+      <table>
+        <thead>
+          <tr>
+            <th (click)="sortBy('id')">ID</th>
+            <th (click)="sortBy('customer')">Customer</th>
+            <th (click)="sortBy('premium')">Premium</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let q of filteredQuotes()">
+            <td>{{ q.id }}</td>
+            <td>{{ q.customer }}</td>
+            <td>{{ q.premium }}</td>
+            <td>
+              <span [ngClass]="q.status.toLowerCase()">{{ q.status }}</span>
+              <select [(ngModel)]="q.status" (change)="updateStats()">
+                <option>Pending</option>
+                <option>Approved</option>
+                <option>Bound</option>
+              </select>
+            </td>
+            <td>
+              <button (click)="viewQuote(q)">View</button>
+              <button (click)="editQuote(q)">Edit</button>
+              <button (click)="deleteQuote(q.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Manage Policies -->
+    <section class="manage-policies">
+      <h3>Manage Policies</h3>
+      <div class="actions">
+        <button (click)="createPolicy()">Create Policy</button>
+        <button (click)="viewAllPolicies()">View All</button>
+        <button (click)="viewExpiredPolicies()">Expired</button>
+      </div>
+    </section>
+  </main>
+</div>

@@ -17,14 +17,5 @@ export class InsuranceFinderComponent {
     { name: 'Adventure', desc: 'Off-road ready and versatile.' },
     { name: 'Electric', desc: 'Eco-friendly and futuristic.' }
   ];
-
-  addHoverEffect(event: Event) {
-    const card = (event.target as HTMLElement).closest('.card');
-    card?.classList.add('shadow-lg');
-  }
-
-  removeHoverEffect(event: Event) {
-    const card = (event.target as HTMLElement).closest('.card');
-    card?.classList.remove('shadow-lg');
-  }
 }
+

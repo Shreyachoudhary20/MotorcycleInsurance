@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-coverage-info',
-  imports: [],
+  standalone: true,
   templateUrl: './coverage-info.component.html',
-  styleUrl: './coverage-info.component.css'
+  styleUrls: ['./coverage-info.component.css']
 })
-export class CoverageInfoComponent {
-
-}
+export class CoverageInfoComponent {}

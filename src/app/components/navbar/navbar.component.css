@@ -52,3 +52,14 @@
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+.btn-outline-light:hover {
+  border-color: #7CB9E8;
+  box-shadow: 0 0 10px rgba(124, 185, 232, 0.7);
+  transition: all 0.3s ease;
+}
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+}

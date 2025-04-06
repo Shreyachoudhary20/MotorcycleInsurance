@@ -1,0 +1,35 @@
+.insurance-finder-section {
+    background-color: #f0f8ff;
+  }
+  
+  .type-card {
+    transition: transform 0.3s ease;
+    border-radius: 16px;
+  }
+  
+  .type-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 45, 98, 0.1);
+  }
+  
+  .icon-circle {
+    background-color: #7CB9E8;
+    color: white;
+    font-size: 1.8rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 1s ease-in-out both;
+  }
+  
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  

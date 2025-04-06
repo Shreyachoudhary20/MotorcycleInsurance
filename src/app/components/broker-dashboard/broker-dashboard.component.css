@@ -1,0 +1,256 @@
+/* broker-dashboard.component.css */
+
+:root {
+  --bg-light: #f0f4f8;
+  --bg-dark: #1c1e21;
+  --text-light: #1c1e21;
+  --text-dark: #f0f4f8;
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --card-dark-bg: rgba(40, 40, 40, 0.7);
+  --sidebar-bg: rgba(124, 185, 232, 0.8);
+  --sidebar-dark-bg: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-light);
+  transition: background 0.3s ease-in-out;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.dark-mode .dashboard-container {
+  background: var(--bg-dark);
+}
+
+.sidebar {
+  width: 240px;
+  background: var(--sidebar-bg);
+  color: #002D62;
+  padding: 1.5rem 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(14px);
+  border-right: 2px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar .brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar .toggle-btn {
+  background: transparent;
+  color: #002D62;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 1.5rem;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #002D62;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.3s, transform 0.2s;
+  text-align: center;
+  font-weight: 500;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.03);
+}
+
+.sidebar .theme-switch {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  transition: background 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header button {
+  margin-left: 0.5rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 0.6s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .card {
+  background: var(--card-dark-bg);
+  color: var(--text-dark);
+}
+
+.card.glass {
+  background: var(--card-bg);
+}
+
+.map {
+  margin-bottom: 2rem;
+}
+
+.map div[leaflet] {
+  height: 250px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quote-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.quote-table th,
+.quote-table td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.quote-table th {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.quote-table select {
+  padding: 0.25rem;
+}
+
+.quote-table input[type="text"] {
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.55rem 1.2rem;
+  margin: 0.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(to right, #0066cc, #0099ff);
+  color: white;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+}
+
+.manage-policies .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.manage-policies .actions button {
+  flex: 1;
+}
+
+/* Status color coding */
+span.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+span.approved {
+  color: green;
+  font-weight: bold;
+}
+
+span.bound {
+  color: blue;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 10;
+    height: 100vh;
+    left: -100%;
+  }
+  .sidebar.collapsed {
+    left: 0;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .header div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+}

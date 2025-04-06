@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-driver-info',
-  imports: [],
+  standalone: true,
   templateUrl: './driver-info.component.html',
-  styleUrl: './driver-info.component.css'
+  styleUrls: ['./driver-info.component.css']
 })
-export class DriverInfoComponent {
-
-}
+export class DriverInfoComponent {}

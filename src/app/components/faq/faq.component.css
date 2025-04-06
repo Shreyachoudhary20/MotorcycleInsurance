@@ -1,0 +1,36 @@
+.faq-section {
+    background: #f0f8ff;
+    border-top: 2px solid #dce3eb;
+    border-bottom: 2px solid #dce3eb;
+    padding: 50px 20px;
+  }
+  
+  .accordion-button {
+    background-color: #ffffff;
+    color: #002D62;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .accordion-button:not(.collapsed) {
+    background-color: #7CB9E8;
+    color: white;
+  }
+  
+  .accordion-body {
+    font-size: 0.95rem;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .arrow-icon {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+  }
+  
+  .arrow-icon.rotate {
+    transform: rotate(180deg);
+  }
+  
+  
