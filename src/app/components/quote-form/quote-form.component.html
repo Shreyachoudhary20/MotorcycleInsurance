@@ -1,20 +1,39 @@
-<div class="container mt-5">
-  <ul class="nav nav-tabs justify-content-center mb-4">
-    <li class="nav-item" *ngFor="let step of ['Customer', 'Driver', 'Motorcycle', 'Coverage']; let i = index">
-      <a class="nav-link" [class.active]="stepIndex === i" (click)="goToStep(i)" style="cursor: pointer;">
-        {{ step }}
-      </a>
-    </li>
-  </ul>
+<div class="quote-wrapper pt-5 mt-0">
+  <div class="quote-progress vertical-stepper mt-5 ps-2">
+    <ul>
+      <li [class.active]="stepIndex === 0" [class.complete]="stepIndex > 0" [title]="'Customer Info'">
+        <span class="circle">{{ stepIndex > 0 ? '✔' : '1' }}</span>
+        <span class="label">Customer</span>
+      </li>
+      <li [class.active]="stepIndex === 1" [class.complete]="stepIndex > 1" [title]="'Driver Details'">
+        <span class="circle">{{ stepIndex > 1 ? '✔' : '2' }}</span>
+        <span class="label">Driver</span>
+      </li>
+      <li [class.active]="stepIndex === 2" [class.complete]="stepIndex > 2" [title]="'Motorcycle Data'">
+        <span class="circle">{{ stepIndex > 2 ? '✔' : '3' }}</span>
+        <span class="label">Motorcycle</span>
+      </li>
+      <li [class.active]="stepIndex === 3" [class.complete]="stepIndex > 3" [title]="'Coverage Plan'">
+        <span class="circle">{{ stepIndex > 3 ? '✔' : '4' }}</span>
+        <span class="label">Coverage</span>
+      </li>
+      <li [class.active]="stepIndex === 4" [title]="'Final Summary'">
+        <span class="circle">5</span>
+        <span class="label">Summary</span>
+      </li>
+    </ul>
+  </div>
 
-  <div *ngIf="stepIndex === 0"><app-customer-info></app-customer-info></div>
-  <div *ngIf="stepIndex === 1"><app-driver-info></app-driver-info></div>
-  <div *ngIf="stepIndex === 2"><app-motorcycle-info></app-motorcycle-info></div>
-  <div *ngIf="stepIndex === 3"><app-coverage-info></app-coverage-info></div>
-  <div *ngIf="stepIndex === 4"><app-confirmation-summary></app-confirmation-summary></div>
+  <div class="quote-content animate-step mt-4">
+    <div *ngIf="stepIndex === 0" class="form-glass"><app-customer-info></app-customer-info></div>
+    <div *ngIf="stepIndex === 1" class="form-glass"><app-driver-info></app-driver-info></div>
+    <div *ngIf="stepIndex === 2" class="form-glass"><app-motorcycle-info></app-motorcycle-info></div>
+    <div *ngIf="stepIndex === 3" class="form-glass"><app-coverage-info></app-coverage-info></div>
+    <div *ngIf="stepIndex === 4" class="form-glass"><app-confirmation-summary></app-confirmation-summary></div>
 
-  <div class="d-flex justify-content-between mt-4">
-    <button class="btn btn-outline-secondary" (click)="prevStep()" [disabled]="stepIndex === 0">← Back</button>
-    <button class="btn btn-primary" (click)="nextStep()" [disabled]="stepIndex === 3">Next →</button>
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-outline-secondary" (click)="prevStep()" [disabled]="stepIndex === 0">← Back</button>
+      <button class="btn btn-primary" (click)="nextStep()" [disabled]="stepIndex === 4">Next →</button>
+    </div>
   </div>
 </div>

@@ -6,17 +6,15 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']  // ✅ FIXED here
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
   @HostListener('window:scroll', [])
-  onWindowScroll() {
+  onWindowScroll(): void {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar?.classList.add('scrolled');
-    } else {
-      navbar?.classList.remove('scrolled');
-    }
+    navbar?.classList.toggle('scrolled', window.scrollY > 50);
   }
 }
+
+
 

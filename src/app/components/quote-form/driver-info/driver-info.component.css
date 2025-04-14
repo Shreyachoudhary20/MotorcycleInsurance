@@ -1,0 +1,39 @@
+.driver-info-container {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 45, 98, 0.1), inset 0 0 10px rgba(124, 185, 232, 0.15);
+    animation: fadeInSlide 0.6s ease-in-out both;
+  }
+  
+  .driver-info-container .form-label {
+    color: #002d62;
+    font-weight: 600;
+  }
+  
+  .driver-info-container .form-control,
+  .driver-info-container .form-select {
+    background-color: #f0f8ff;
+    border: 1px solid #7cb9e8;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .driver-info-container .form-control:focus,
+  .driver-info-container .form-select:focus {
+    border-color: #002d62;
+    box-shadow: 0 0 8px rgba(0, 45, 98, 0.2);
+  }
+  
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

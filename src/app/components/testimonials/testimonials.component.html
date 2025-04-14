@@ -1,0 +1,23 @@
+<div class="testimonial-section">
+    <h2 class="section-title">What Our Customers Say</h2>
+    <p class="section-subtitle">Trusted feedback from our happy riders</p>
+  
+    <div class="testimonial-grid">
+      <div *ngFor="let testimonial of testimonials" class="testimonial-card" [class.flipped]="testimonial.flipped" (click)="toggleFlip(testimonial)">
+        <div class="card-inner">
+          <div class="card-front">
+            <img [src]="testimonial.image" alt="{{testimonial.name}}" class="customer-img" />
+            <h4>{{ testimonial.name }}</h4>
+            <div class="stars">
+              <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5]"></i>
+            </div>
+          </div>
+          <div class="card-back">
+            <p class="message">{{ testimonial.message }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,39 @@
+.coverage-container {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(0, 45, 98, 0.15), inset 0 0 10px rgba(124, 185, 232, 0.2);
+    animation: fadeSlideIn 0.5s ease;
+  }
+  
+  .coverage-container .form-label {
+    color: #002d62;
+    font-weight: 600;
+  }
+  
+  .coverage-container .form-select,
+  .coverage-container .form-control {
+    background-color: #f0f8ff;
+    border: 1px solid #7cb9e8;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .coverage-container .form-select:focus,
+  .coverage-container .form-control:focus {
+    box-shadow: 0 0 8px rgba(0, 45, 98, 0.3);
+    border-color: #002d62;
+  }
+  
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,0 +1,112 @@
+.quote-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 4rem 2rem 2rem 2rem;
+    margin-top: 0;
+  }
+  
+  .vertical-stepper {
+    margin-top: 3.6rem;
+  }
+  
+  .vertical-stepper ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+  }
+  
+  .vertical-stepper ul::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dce7f5;
+  }
+  
+  .vertical-stepper li {
+    position: relative;
+    padding-left: 2.5rem;
+    color: #aaa;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    transition: all 0.3s ease;
+  }
+  
+  .vertical-stepper li .circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #d0d8e5;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #ccc;
+    z-index: 2;
+  }
+  
+  .vertical-stepper li .label {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+  }
+  
+  .vertical-stepper li.active .circle {
+    background: linear-gradient(to right, #7cb9e8, #002d62);
+    box-shadow: 0 0 0 3px #7cb9e8;
+  }
+  
+  .vertical-stepper li.complete .circle {
+    background: #002d62;
+    box-shadow: 0 0 0 3px #7cb9e8;
+  }
+  
+  .vertical-stepper li.active .label {
+    color: #002d62;
+    font-weight: bold;
+  }
+  
+  .vertical-stepper li.complete .label {
+    color: #0f4c81;
+  }
+  
+  .quote-content {
+    flex: 1;
+    transition: all 0.4s ease-in-out;
+    margin-top: 1rem;
+  }
+  
+  .form-glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeStep 0.4s ease;
+  }
+  
+  @keyframes fadeStep {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

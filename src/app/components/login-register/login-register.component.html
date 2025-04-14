@@ -1,0 +1,73 @@
+<div class="auth-section">
+    <div class="auth-container">
+      <div class="auth-wrapper">
+  
+        <!-- Left Message Panel -->
+        <div class="auth-left">
+          <div class="auth-text">
+            <h2 class="big-heading" *ngIf="isRegisterMode">Hey! Register Yourself</h2>
+            <h2 class="big-heading" *ngIf="!isRegisterMode">Welcome Back</h2>
+            <p *ngIf="isRegisterMode">
+              Sign up as a broker or admin and get started with your motorcycle insurance portal.
+            </p>
+            <p *ngIf="!isRegisterMode">
+              Login to your account and manage quotes, policies, and more.
+            </p>
+          </div>
+        </div>
+  
+        <!-- Form Panel -->
+        <div class="auth-form">
+          <h2 class="form-title">{{ isRegisterMode ? 'Register' : 'Login' }}</h2>
+  
+          <form (ngSubmit)="isRegisterMode ? register() : login()">
+            <!-- Register Form -->
+            <div *ngIf="isRegisterMode">
+              <input type="text" placeholder="Name" [(ngModel)]="registerData.name" name="name" required />
+              <input type="email" placeholder="Email" [(ngModel)]="registerData.email" name="registerEmail" required />
+              <div class="password-wrapper">
+                <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="registerData.password" name="registerPassword" required />
+                <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'" (click)="togglePasswordVisibility()"></i>
+              </div>
+              <select [(ngModel)]="registerData.role" name="role" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="broker">Broker</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+  
+            <!-- Login Form -->
+            <div *ngIf="!isRegisterMode">
+              <input type="email" placeholder="Email" [(ngModel)]="loginData.email" name="loginEmail" required />
+              <div class="password-wrapper">
+                <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="loginData.password" name="loginPassword" required />
+                <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'" (click)="togglePasswordVisibility()"></i>
+              </div>
+            </div>
+  
+            <button type="submit" class="submit-btn">
+              {{ isRegisterMode ? 'Register' : 'Login' }}
+            </button>
+          </form>
+  
+          <div class="toggle-text">
+            <span (click)="toggleMode()">
+              {{ isRegisterMode ? 'Already have an account? Login' : 'No account yet? Register' }}
+            </span>
+          </div>
+  
+          <!-- Social Icons -->
+          <div class="social-icons">
+            <i class="bi bi-apple"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-google"></i>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  
+  

@@ -1,7 +1,37 @@
-.container {
-    background-color: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-  }
-  
+.customer-info-wrapper {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  animation: fadeInUp 0.6s ease-in-out both;
+}
+
+.info-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #002d62;
+  text-align: center;
+  background: linear-gradient(to right, #7cb9e8, #002d62);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #002d62;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #7cb9e8;
+  box-shadow: 0 0 6px rgba(124, 185, 232, 0.5);
+}

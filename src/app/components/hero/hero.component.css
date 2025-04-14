@@ -1,40 +1,107 @@
+/* === Hero Section Wrapper === */
+.hero-section {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: #f0f8ff;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* === Hero Content Container === */
 .hero-container {
-    padding: 100px 20px 60px;
-    background-color: #f8f9fa;
-    min-height: 100vh;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* === Glassmorphic Card === */
+.glass-card {
+  background: linear-gradient(to bottom right, rgba(240, 248, 255, 0.7), rgba(173, 216, 230, 0.5));
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 45, 98, 0.15), inset 0 0 12px rgba(255, 255, 255, 0.2);
+  max-width: 1140px;
+  width: 100%;
+  padding: 3rem 2rem;
+  transition: transform 0.6s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* === Animated Typing Headline === */
+.animated-headline .word {
+  display: inline-block;
+  opacity: 0;
+  animation: typingFade 1s ease forwards;
+  margin-right: 8px;
+}
+
+.animated-headline .word:nth-child(1) { animation-delay: 0.2s; }
+.animated-headline .word:nth-child(2) { animation-delay: 0.8s; }
+.animated-headline .word:nth-child(3) { animation-delay: 1.4s; }
+.animated-headline .word:nth-child(4) { animation-delay: 2s; }
+
+@keyframes typingFade {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* === ZIP Input Styling === */
+.input-group input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.input-group input::placeholder {
+  color: #888;
+}
+
+/* === Badge Styling === */
+.badge {
+  background: linear-gradient(to right, #b3e5fc, #0288d1);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* === Testimonial Link Styling === */
+.mt-3.text-muted a {
+  color: #007BFF;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.mt-3.text-muted em {
+  color: #555;
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 2rem 1.5rem;
   }
-  
-  .badge {
-    background: linear-gradient(to right, #7CB9E8, #002D62);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 30px;
-    font-size: 0.9rem;
+
+  .animated-headline .word {
+    font-size: 1.75rem;
   }
-  
-  .input-group input:focus {
-    outline: none;
-    box-shadow: none;
+
+  .display-2 {
+    font-size: 2.25rem;
   }
-  
-  .input-group input::placeholder {
-    color: #888;
+
+  .input-group {
+    flex-direction: column;
   }
-  
-  .bike-img {
-    max-width: 450px;
+
+  .input-group input,
+  .input-group .btn {
     width: 100%;
-    animation: float 4s ease-in-out infinite;
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
+    border-radius: 999px !important;
   }
-  
-  @keyframes float {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-  }
-  .hero-section {
-    padding-top: 100px; /* enough space below navbar */
-    text-align: center;
-  }
-  
+}

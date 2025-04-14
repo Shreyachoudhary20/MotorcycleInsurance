@@ -1,71 +1,74 @@
+<div class="container mt-4" *ngIf="!submitted && allDataFilled()" #pdfContent>
+  <div class="card shadow p-4 border-0 rounded-4">
+    <h3 class="fw-bold text-center mb-4 text-success">Quote Summary</h3>
 
-<div class="container mt-4" #pdfContent>
-<div class="container mt-4">
-    <div class="card shadow p-4 border-0 rounded-4">
-      <h3 class="fw-bold text-center mb-4 text-success">Quote Summary</h3>
-  
-      <div class="row">
-        <!-- Customer Info -->
-        <div class="col-md-6 mb-4">
-          <h5 class="text-primary">Customer Info</h5>
-          <ul class="list-group">
-            <li class="list-group-item">Name: John Doe</li>
-            <li class="list-group-item">
-                Email: <a href="mailto:john@example.com">john.com</a>
-              </li>
-            <li class="list-group-item">Phone: 9876543210</li>
-            <li class="list-group-item">City: Mumbai</li>
-          </ul>
-        </div>
-  
-        <!-- Driver Info -->
-        <div class="col-md-6 mb-4">
-          <h5 class="text-primary">Driver Info</h5>
-          <ul class="list-group">
-            <li class="list-group-item">License No: MH20230001</li>
-            <li class="list-group-item">Experience: 5 Years</li>
-            <li class="list-group-item">Gender: Male</li>
-          </ul>
-        </div>
-  
-        <!-- Bike Info -->
-        <div class="col-md-6 mb-4">
-          <h5 class="text-primary">Motorcycle Info</h5>
-          <ul class="list-group">
-            <li class="list-group-item">Make/Model: Bajaj Pulsar 150</li>
-            <li class="list-group-item">Year: 2022</li>
-            <li class="list-group-item">Fuel Type: Petrol</li>
-          </ul>
-        </div>
-  
-        <!-- Coverage Info -->
-        <div class="col-md-6 mb-4">
-          <h5 class="text-primary">Coverage Info</h5>
-          <ul class="list-group">
-            <li class="list-group-item">Type: Comprehensive</li>
-            <li class="list-group-item">Start Date: 01-Apr-2025</li>
-            <li class="list-group-item">Estimated Premium: ₹2,700</li>
-          </ul>
-        </div>
+    <!-- Customer + Driver Info -->
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h5 class="text-primary">Customer Info</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Name: {{ customerInfo.name }}</li>
+          <li class="list-group-item">
+            Email: <a [href]="'mailto:' + customerInfo.email">{{ customerInfo.email }}</a>
+          </li>
+          <li class="list-group-item">Phone: {{ customerInfo.phone }}</li>
+          <li class="list-group-item">City: {{ customerInfo.city }}</li>
+        </ul>
       </div>
-  
-      <div class="d-flex justify-content-between mt-4">
-        <button class="btn btn-outline-secondary px-4">← Back</button>
-        <button class="btn btn-success px-4">Submit &rarr;</button>
+
+      <div class="col-md-6 mb-4">
+        <h5 class="text-primary">Driver Info</h5>
+        <ul class="list-group">
+          <li class="list-group-item">License No: {{ driverInfo.licenseNo }}</li>
+          <li class="list-group-item">Experience: {{ driverInfo.experience }} Years</li>
+          <li class="list-group-item">Gender: {{ driverInfo.gender }}</li>
+        </ul>
       </div>
     </div>
+
+    <!-- Motorcycle + Coverage Info -->
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h5 class="text-primary">Motorcycle Info</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Make/Model: {{ motorcycleInfo.makeModel }}</li>
+          <li class="list-group-item">Year: {{ motorcycleInfo.year }}</li>
+          <li class="list-group-item">Fuel Type: {{ motorcycleInfo.fuelType }}</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <h5 class="text-primary">Coverage Info</h5>
+        <ul class="list-group">
+          <li class="list-group-item">Type: {{ coverageInfo.type }}</li>
+          <li class="list-group-item">Start Date: {{ coverageInfo.startDate }}</li>
+          <li class="list-group-item">Estimated Premium: ₹{{ coverageInfo.estimatedPremium }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-outline-secondary px-4" (click)="goBack()">← Back</button>
+      <button class="btn btn-success px-4" (click)="submitQuote()">Submit →</button>
+    </div>
+
+    <div class="text-end mt-3">
+      <button class="btn btn-outline-primary" (click)="generatePdf()">Download PDF</button>
+    </div>
   </div>
-  <!-- ...existing summary card... -->
 </div>
 
-<div class="text-end mt-3">
-    <button class="btn btn-outline-primary" (click)="generatePdf()">Download PDF</button>
-</div>
-<!-- ✅ Success View -->
+<!-- ✅ Submission Confirmation -->
 <div *ngIf="submitted" class="text-center py-5">
-    <i class="bi bi-check-circle-fill text-success fs-1 mb-3"></i>
-    <h4 class="fw-bold text-success">Quote Submitted Successfully!</h4>
-    <p class="text-muted">We've received your request. Our team will get back to you soon.</p>
-    <a class="btn btn-outline-primary mt-3" routerLink="/">Go to Home</a>
-  </div>
-  
+  <i class="bi bi-check-circle-fill text-success fs-1 mb-3"></i>
+  <h4 class="fw-bold text-success">Quote Submitted Successfully!</h4>
+  <p class="text-muted">We've received your request. Our team will get back to you soon.</p>
+  <a class="btn btn-outline-primary mt-3" routerLink="/">Go to Home</a>
+</div>
+
+<!-- ❌ Fallback if data missing -->
+<div *ngIf="!allDataFilled() && !submitted" class="text-center mt-5">
+  <h5 class="text-danger">Please fill out all required information before viewing summary.</h5>
+  <button class="btn btn-outline-secondary mt-3" (click)="goBack()">← Back</button>
+</div>

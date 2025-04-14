@@ -1,0 +1,39 @@
+.motorcycle-info-container {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 24px rgba(0, 45, 98, 0.15), inset 0 0 12px rgba(124, 185, 232, 0.15);
+    animation: fadeSlideIn 0.5s ease;
+  }
+  
+  .motorcycle-info-container .form-label {
+    color: #002d62;
+    font-weight: 600;
+  }
+  
+  .motorcycle-info-container .form-control,
+  .motorcycle-info-container .form-select {
+    background-color: #f0f8ff;
+    border: 1px solid #7cb9e8;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .motorcycle-info-container .form-control:focus,
+  .motorcycle-info-container .form-select:focus {
+    border-color: #002d62;
+    box-shadow: 0 0 8px rgba(0, 45, 98, 0.25);
+  }
+  
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

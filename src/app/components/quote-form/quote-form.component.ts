@@ -22,18 +22,24 @@ import { ConfirmationSummaryComponent } from './confirmation-summary/confirmatio
   styleUrls: ['./quote-form.component.css']
 })
 export class QuoteFormComponent {
-  stepIndex = 0;
+  stepIndex: number = 0;
 
-  nextStep() {
-    if (this.stepIndex < 4) this.stepIndex++;
+  nextStep(): void {
+    if (this.stepIndex < 4) {
+      this.stepIndex++;
+    }
   }
 
-  prevStep() {
-    if (this.stepIndex > 0) this.stepIndex--;
+  prevStep(): void {
+    if (this.stepIndex > 0) {
+      this.stepIndex--;
+    }
   }
 
-  goToStep(step: number) {
-    this.stepIndex = step;
+  goToStep(index: number): void {
+    if (index >= 0 && index <= 4) {
+      this.stepIndex = index;
+    }
   }
-
 }
+

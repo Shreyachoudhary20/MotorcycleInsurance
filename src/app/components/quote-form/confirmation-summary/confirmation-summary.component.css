@@ -1,0 +1,76 @@
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card {
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 20px rgba(0, 45, 98, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .card h3 {
+    font-weight: 700;
+    color: #002d62;
+  }
+  
+  h5 {
+    font-weight: 600;
+  }
+  
+  .list-group-item {
+    border: none;
+    background-color: transparent;
+    font-size: 0.95rem;
+  }
+  
+  .btn-outline-secondary,
+  .btn-outline-primary,
+  .btn-success {
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #dee2e6;
+  }
+  
+  .btn-success {
+    background-color: #002d62;
+    border-color: #002d62;
+  }
+  
+  .btn-success:hover {
+    background-color: #001840;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-success {
+    color: #198754;
+  }
+  
+  .bi-check-circle-fill {
+    animation: popIn 0.6s ease-out;
+  }
+  
+  @keyframes popIn {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

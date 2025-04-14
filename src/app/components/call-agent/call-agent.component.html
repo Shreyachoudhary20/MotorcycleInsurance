@@ -1,22 +1,49 @@
 <section class="call-agent-section py-5 text-center">
-    <div class="container fade-in-up">
-      
-      <!-- Circle with Bootstrap icon -->
+  <div class="container fade-in-up">
 
-      <h2 class="fw-bold mb-2">Need Help Choosing Coverage?</h2>
-      <p class="text-muted mb-3">
-        Our experts are here to guide you through every step of your motorcycle insurance journey.
-      </p>
-  
-      <!-- Star Rating -->
-      <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-3">
-        <span class="text-warning fs-5">★★★★★</span>
-        <span class="text-secondary">Rated 4.9/5 by 3,200+ riders</span>
-      </div>
-  
-      <a href="tel:+1800123456" class="btn btn-outline-primary px-5 py-2 fw-semibold rounded-pill shadow-sm">
-        📞 Call an Insurance Agent
-      </a>
+    <h2 class="fw-bold mb-2">Need Help Choosing Coverage?</h2>
+    <p class="text-muted mb-3">
+      Our experts are here to guide you through every step of your motorcycle insurance journey.
+    </p>
+
+    <!-- Star Rating -->
+    <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-3">
+      <span class="text-warning fs-5">★★★★★</span>
+      <span class="text-secondary">Rated 4.9/5 by 3,200+ riders</span>
     </div>
-  </section>
+
+    <!-- Open Modal Button -->
+    <button class="btn btn-outline-primary px-5 py-2 fw-semibold rounded-pill shadow-sm" (click)="openAgentModal()">
+      📞 Call an Insurance Agent
+    </button>
+  </div>
+
+  <!-- Agent Contact Modal -->
+  <div class="modal-overlay" *ngIf="isAgentModalOpen" (click)="closeAgentModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h4>Talk to an Insurance Agent</h4>
+        <button class="close-btn" (click)="closeAgentModal()">×</button>
+      </div>
+      <div class="modal-content">
+        <p>Have a question or want a callback? Fill out the form below:</p>
+        <form>
+          <div class="mb-3 text-start">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name">
+          </div>
+          <div class="mb-3 text-start">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" placeholder="e.g. +91 98765 43210">
+          </div>
+          <div class="mb-3 text-start">
+            <label for="question" class="form-label">Your Question</label>
+            <textarea class="form-control" id="question" rows="3" placeholder="How can we help?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
   
